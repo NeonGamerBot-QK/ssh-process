@@ -6,6 +6,13 @@
   "license": "MIT",
   "description": "An ssh server which attaches to the node process",
   "private": false,
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "prettify": "prettier-eslint --write .",
+    "precommit": "lint-staged",
+    "prepublish": "npm run test && npm run lint && npm run prettify"
+  },
   "devDependencies": {
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
@@ -15,6 +22,10 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NeonGamerBot-QK/ssh-process.git"
   },
   "dependencies": {
     "node-pty": "^1.0.0",
