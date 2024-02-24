@@ -1,0 +1,20 @@
+{
+  "name": "ssh-process",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "author": "Neon <neon@saahild.com>",
+  "license": "MIT",
+  "description": "An ssh server which attaches to the node process",
+  "private": false,
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "prettier-eslint": "^16.3.0"
+  },
+  "dependencies": {
+    "node-pty": "^1.0.0",
+    "ssh2": "^1.15.0"
+  }
+}
