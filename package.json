@@ -6,6 +6,18 @@
   "license": "MIT",
   "description": "An ssh server which attaches to the node process",
   "private": false,
+  "packageManager": "yarn",
+  "keywords": [
+    "ssh",
+    "process",
+    "node"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "sponsor": {
+    "url": "https://ko-fi.com/saahil"
+  },
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
