@@ -6,7 +6,6 @@
   "license": "MIT",
   "description": "An ssh server which attaches to the node process",
   "private": false,
-  "packageManager": "yarn",
   "keywords": [
     "ssh",
     "process",
