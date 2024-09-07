@@ -1,20 +1,29 @@
-# .github/workflows/release-package.yml
-name: on release
-
 on:
-    release:
-        types: [created]
+  push:
+    branches: main
 
 jobs:
-    publish-github-registry:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 18
-                  registry-url: https://npm.pkg.github.com/
-            - run: yarn install
-            - run: yarn publish
-              env:
-                  NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  publish-git:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v4
+      #   change name because git required STRICT name checking and i want git npm pkgs.
+      - run: sed -i 's/@neongamerbot/@neongamerbot-qk/g' package.json
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          access: public
+          provenance: true
+          registry: "https://npm.pkg.github.com"
+  publish-npm:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v4
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: public
+          registry: "https://registry.npmjs.org/"
+          provenance: true
