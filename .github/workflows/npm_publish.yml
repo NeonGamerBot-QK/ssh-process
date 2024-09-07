@@ -9,7 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       #   change name because git required STRICT name checking and i want git npm pkgs.
-      - run: sed -i 's/@neongamerbot/@neongamerbot-qk/g' package.json
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
